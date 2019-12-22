@@ -1,0 +1,6 @@
+.env
+node_modules
+tmp/uploads
+yarn.lock
+yarn-error.log
+.vscode
