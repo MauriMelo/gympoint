@@ -14,15 +14,15 @@ Gympoint é um app que facilita o gerenciamento de matrículas de alunos em uma 
   <img alt="Gympoint" title="Gympoint" src=".github/web.png" width="600px" />
 </h1>
 
-**Mobile**: O aplicativo mobile é para os alunos que estão matrículados na academia, neste aplicativo basicamente o aluno pode realizar check-ins e pedir auxílio.
+**Mobile**: O aplicativo mobile é para os alunos que estão matriculados na academia, neste aplicativo basicamente o aluno pode realizar check-ins e pedir auxílio.
 
 <h1 align="center">
   <img alt="Gympoint" title="Gympoint" src=".github/mobile.png" width="200px" />
 </h1>
 
 ## Requisitos
-- [Docker](https://docs.docker.com/get-started/),
-- [Yarn](https://yarnpkg.com/en/docs/install#debian-stable),
+- [Docker](https://docs.docker.com/get-started/)
+- [Yarn](https://yarnpkg.com/en/docs/install#debian-stable)
 - [React Native](https://facebook.github.io/react-native/docs/getting-started) (Não foi utilizado o Expo no desenvolvimento)
 - [Node v.10](https://nodejs.org/en/)
 
@@ -50,7 +50,7 @@ Gympoint é um app que facilita o gerenciamento de matrículas de alunos em uma 
 - Copiar o arquivo **web/.env.example** para **web/.env**
 - Copiar o arquivo **mobile/.env.example** para **mobile/.env**
 
-> **IMPORTANTE:** Algumas configurações estão vinculadas com os serviços adicionados no **docker-compose.yml** então caso faça alguma alteração de porta ou endereço por exemplo é necessário alterar no docker-compose também.
+> **IMPORTANTE:** Algumas configurações estão vinculadas com os serviços adicionados no **docker-compose.yml** então caso faça alguma alteração de porta ou endereço por exemplo é necessário alterar no **docker-compose** também.
 
 ### 2 Rodando a aplicação
 
@@ -65,11 +65,18 @@ Após aguardar os serviços serem inicializados é preciso rodar as migrations e
 > Para saber o **[CONTAINER_ID]** da api você pode rodar o comando **docker ps**
 
 ### 4 Acessando aplicação
-  - Acessando a api diretamente[http://localhost:3333/plans](http://localhost:3333/plans) e se aparecer Unauthorized então a api está funcionando normalmente.
+  - Acesse o link [http://localhost:3333/plans](http://localhost:3333/plans) e se aparecer Unauthorized então a api está funcionando normalmente.
   - Acesse o link [http://localhost:3000/](http://localhost:3000/) e se aparecer uma tela de autenticação então a aplicação web está funcionando normalmente.
+
+  Existe um usuário default para acessar a aplicação web que é criada quando as migrations e seeds são executadas:<br/>
+  - **email**: admin@gmail.com
+  - **senha**: 123456
 
 
 ### 5 Mobile
 Para rodar o mobile é preciso acessar a pasta **./mobile** e rodas os seguintes comandos: **yarn**,  **yarn start --reset-cache** e  **yarn android**, caso for ios rodar o comando **yarn ios**(lembrando que foram feitos testes apenas no android)
 
 > **Importante:** Caso faça testes utilizando o USB é preciso rodar o comando: **adb reverse tcp:3333 tcp:3333 && yarn android** para que seja possível a comunicação com a API.
+
+### 6 Tests
+Em breve!
