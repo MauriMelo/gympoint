@@ -1,6 +1,10 @@
 .env
+.env.development
+.env.test
 node_modules
 tmp/uploads
 yarn.lock
 yarn-error.log
 .vscode
+__tests__/database.sqlite
+core

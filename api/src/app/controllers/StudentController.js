@@ -106,7 +106,7 @@ class StudentController {
     const { id = 0 } = req.params;
 
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
+      name: Yup.string().nullable(),
       email: Yup.string()
         .email()
         .nullable(),

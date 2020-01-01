@@ -6,7 +6,7 @@ class EnrollMentMail {
   }
 
   async handle({ data }) {
-    const res = await Mail.sendMail({
+    await Mail.sendMail({
       to: data.to,
       subject: data.subject,
       template: 'enrollment',
@@ -17,7 +17,6 @@ class EnrollMentMail {
         price: data.price,
       },
     });
-
   }
 }
 

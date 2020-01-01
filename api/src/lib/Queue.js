@@ -36,6 +36,15 @@ class Queue {
   handleError(job, err) {
     console.log(`Queue ${job.queue.name} FAILED`, err);
   }
+
+  destroy() {
+    Promise.all(
+      jobs.map(async ({ key }) => {
+        const destroy = await this.queues[key].bee.close();
+        return destroy;
+      })
+    );
+  }
 }
 
 export default new Queue();

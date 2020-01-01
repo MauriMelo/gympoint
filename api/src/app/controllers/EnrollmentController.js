@@ -28,7 +28,7 @@ class EnrollmentController {
       ],
     });
 
-    if (!enrollments) {
+    if (!enrollments.length) {
       return res.status(404).json({
         error: 'Matrícula não encontrada',
       });
@@ -186,7 +186,9 @@ class EnrollmentController {
     }
 
     const student = await Student.findOne({
-      id: student_id,
+      where: {
+        id: student_id,
+      },
     });
 
     if (!student) {

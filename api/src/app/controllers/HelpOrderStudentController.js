@@ -58,7 +58,7 @@ class HelpOrderStudentController {
     }
 
     const order = await HelpOrder.create({
-      student_id: id,
+      student_id: parseInt(id, 10),
       question,
     });
 
