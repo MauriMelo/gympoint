@@ -5,20 +5,23 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently \"yarn queue\" \"yarn dev\"",
-    "dev": "nodemon ./src/server.js",
-    "dev:debug": "nodemon --inspect ./src/server.js",
-    "queue": "nodemon ./src/queue.js",
-    "queue:debug": "nodemon --inspect ./src/queue.js"
+    "dev": "nodemon --inspect ./src/server.js",
+    "queue": "nodemon --inspect=9231 ./src/queue.js",
+    "pretest": "NODE_ENV=test yarn sequelize db:migrate:undo:all && NODE_ENV=test yarn sequelize db:migrate",
+    "test": "NODE_ENV=test jest --runInBand",
+    "pretest:debug": "NODE_ENV=test yarn sequelize db:migrate:undo:all && NODE_ENV=test yarn sequelize db:migrate",
+    "test:debug": "NODE_ENV=test node --inspect-brk=9230 node_modules/.bin/jest --runInBand --testTimeout=0"
   },
   "dependencies": {
     "@sentry/node": "^5.7.1",
+    "@types/jest": "^24.0.25",
     "bcryptjs": "^2.4.3",
     "bee-queue": "^1.2.2",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "date-fns": "^2.6.0",
-    "dotenv": "^8.2.0",
+    "dotenv-flow": "^3.1.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "express-handlebars": "^3.1.0",
@@ -34,15 +37,22 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
     "concurrently": "^5.0.2",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "mockdate": "^2.0.5",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "sequelize-cli": "^5.5.1",
-    "sucrase": "^3.10.1"
+    "sqlite": "^3.0.3",
+    "sucrase": "^3.10.1",
+    "supertest": "^4.0.2"
   }
 }

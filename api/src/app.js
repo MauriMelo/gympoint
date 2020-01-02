@@ -1,4 +1,5 @@
-import 'dotenv/config';
+import './bootstrap';
+
 import Youch from 'youch';
 import express from 'express';
 import cookieParser from 'cookie-parser';
@@ -7,11 +8,13 @@ import * as Sentry from '@sentry/node';
 import cors from 'cors';
 import routes from './routes';
 import sentryConfig from './config/sentry';
-
-import './database';
+import queue from './lib/Queue';
+import database from './database';
 
 class App {
   constructor() {
+    this.database = database;
+    this.queue = queue;
     this.server = express();
     Sentry.init(sentryConfig);
     this.middlewares();
