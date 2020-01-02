@@ -78,5 +78,11 @@ Para rodar o mobile é preciso acessar a pasta **./mobile** e rodas os seguintes
 
 > **Importante:** Caso faça testes utilizando o USB é preciso rodar o comando: **adb reverse tcp:3333 tcp:3333 && yarn android** para que seja possível a comunicação com a API.
 
-### 6 Tests
-Em breve!
+### 6 Tests Api
+Para rodar os testes na api é necessário inserir um arquivo **.env.test** na pasta **./api** para configurar um ambiente apenas para os testes e para isso podemos utilizar o arquivo **.env.example**.
+
+> **Importante:** a cada teste que é realizado é removido os registros que estão nas bases de dados(mysql, mongo) então é importante que os testes sejam feitos em um banco apenas para os testes.
+
+após a configuração do **.env.test** precisamos apenas rodas os testes dentro do container:
+
+docker exec -it **[CONTAINER_ID]** yarn test  
