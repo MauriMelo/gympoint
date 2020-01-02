@@ -5,14 +5,12 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently \"yarn queue\" \"yarn dev\"",
-    "dev": "NODE_ENV=development nodemon --inspect ./src/server.js",
-    "dev:debug": "nodemon --inspect ./src/server.js",
-    "queue": "NODE_ENV=development nodemon ./src/queue.js",
-    "queue:debug": "nodemon --inspect ./src/queue.js",
+    "dev": "nodemon --inspect ./src/server.js",
+    "queue": "nodemon --inspect=9231 ./src/queue.js",
     "pretest": "NODE_ENV=test yarn sequelize db:migrate:undo:all && NODE_ENV=test yarn sequelize db:migrate",
     "test": "NODE_ENV=test jest --runInBand",
     "pretest:debug": "NODE_ENV=test yarn sequelize db:migrate:undo:all && NODE_ENV=test yarn sequelize db:migrate",
-    "test:debug": "NODE_ENV=test node --inspect-brk=9230 node_modules/.bin/jest __tests__/integration/StudentController.test.js --runInBand --testTimeout=0"
+    "test:debug": "NODE_ENV=test node --inspect-brk=9230 node_modules/.bin/jest --runInBand --testTimeout=0"
   },
   "dependencies": {
     "@sentry/node": "^5.7.1",
@@ -23,7 +21,7 @@
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "date-fns": "^2.6.0",
-    "dotenv": "^8.2.0",
+    "dotenv-flow": "^3.1.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "express-handlebars": "^3.1.0",

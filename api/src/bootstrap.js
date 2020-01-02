@@ -1,5 +1,3 @@
-const dotenv = require('dotenv');
+const dotenv = require('dotenv-flow');
 
-dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+dotenv.config();

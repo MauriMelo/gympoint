@@ -1,10 +1,11 @@
 .env
-.env.development
-.env.test
+.env.*
+!.env.example
 node_modules
 tmp/uploads
 yarn.lock
 yarn-error.log
 .vscode
+__tests__/coverage
 __tests__/database.sqlite
 core
